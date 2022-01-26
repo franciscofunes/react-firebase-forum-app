@@ -50,7 +50,7 @@ const Navbar = () => {
         <Bars onClick={openHamburguerMenu} />
         <NavMenu>
           <NavLink to='/'>Mensajes</NavLink>
-          <NavLink to='/casamiento' activeStyle>
+          <NavLink to='/casamiento' activestyle='true'>
             Casamiento
           </NavLink>
         </NavMenu>
@@ -64,7 +64,7 @@ const Navbar = () => {
           {isAuthString && (
             <>
               <NavBtnLinkExit to='/' onClick={signUserOut}>
-                Salir
+                Salir ✖️
               </NavBtnLinkExit>
               {currentUser && <Avatar src={currentUser.photoURL}></Avatar>}
             </>
