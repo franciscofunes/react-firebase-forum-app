@@ -3,7 +3,6 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Avatar } from "./NavbarElements";
 
 const Ul = styled.ul`
   list-style: none;
@@ -40,6 +39,19 @@ export const Avatarhamburger = styled.img`
 const RightNav = ({ open }) => {
   const [currentUser, setCurrentUser] = useState();
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  const [width, setWidth] = useState(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isMobile = width <= 768;
 
   const isAuthString = localStorage.getItem("isAuth");
 
@@ -64,33 +76,35 @@ const RightNav = ({ open }) => {
   };
   return (
     <>
-      <Ul open={open}>
-        <li>
-          {currentUser && (
-            <Avatarhamburger src={currentUser.photoURL}></Avatarhamburger>
-          )}
-        </li>
-        <Link to='/'>
-          <li>Mensajes</li>
-        </Link>
-        <Link to='/casamiento'>
-          <li>Casamiento</li>
-        </Link>
-        <Link
-          to={isAuthString ? "/crear-mensaje" : "/login"}
-          onClick={!isAuthString ? loginAlert : ""}
-        >
-          <li>Saludar 👋</li>
-        </Link>
+      {isMobile && (
+        <Ul open={open}>
+          <li>
+            {currentUser && (
+              <Avatarhamburger src={currentUser.photoURL}></Avatarhamburger>
+            )}
+          </li>
+          <Link to='/'>
+            <li>Mensajes</li>
+          </Link>
+          <Link to='/casamiento'>
+            <li>Casamiento</li>
+          </Link>
+          <Link
+            to={isAuthString ? "/crear-mensaje" : "/login"}
+            onClick={!isAuthString ? loginAlert : ""}
+          >
+            <li>Saludar 👋</li>
+          </Link>
 
-        {isAuthString && (
-          <>
-            <Link to='/'>
-              <li onClick={signUserOut}>Salir ✖️</li>
-            </Link>
-          </>
-        )}
-      </Ul>
+          {isAuthString && (
+            <>
+              <Link to='/'>
+                <li onClick={signUserOut}>Salir ✖️</li>
+              </Link>
+            </>
+          )}
+        </Ul>
+      )}
     </>
   );
 };

@@ -19,7 +19,7 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 1rem 0.7rem 0;
+  padding: 0.3rem 0.6rem 0;
   height: 100%;
   cursor: pointer;
   &.active {
@@ -75,7 +75,7 @@ export const NavBtnLink = styled(Link)`
 
 export const NavBtnLinkExit = styled(Link)`
   border-radius: 4px;
-  background: #ff4500;
+  // background: #ff4500;
   padding: 10px 15px;
   color: #fff;
   outline: none;
@@ -84,18 +84,23 @@ export const NavBtnLinkExit = styled(Link)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   /* Second Nav */
-  margin-left: 20px;
+  margin-left: 10px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+    // background: #fff;
+    color: purple;
   }
+  text-align: center;
+  font-size: 0.9rem;
 `;
 
 export const Avatar = styled.img`
+  display: flex;
+  // flex-direction: row;
+  // justify-content: flex-end;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  padding: 5px;
-  margin-left: 10px;
+  padding: 1px;
+  // margin-left: 10px;
 `;

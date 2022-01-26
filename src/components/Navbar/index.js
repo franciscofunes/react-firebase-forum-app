@@ -60,9 +60,9 @@ const Navbar = () => {
           {isAuthString && (
             <>
               <NavBtnLinkExit to='/' onClick={signUserOut}>
-                Salir ✖️
+                {currentUser && <Avatar src={currentUser.photoURL}></Avatar>}
+                Salir
               </NavBtnLinkExit>
-              {currentUser && <Avatar src={currentUser.photoURL}></Avatar>}
             </>
           )}
         </NavBtn>
