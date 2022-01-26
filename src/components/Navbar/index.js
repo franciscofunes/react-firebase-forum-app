@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {
   Nav,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
@@ -11,16 +10,13 @@ import {
 } from "./NavbarElements";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase-config";
+import Burger from "./Burger";
 
 const Navbar = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const [currentUser, setCurrentUser] = useState();
 
   const isAuthString = localStorage.getItem("isAuth");
-
-  const openHamburguerMenu = () => {
-    document.querySelector(".nav-menu").classList.toggle("open");
-  };
 
   useEffect(() => {
     auth.onAuthStateChanged((currentUser) => {
@@ -47,7 +43,7 @@ const Navbar = () => {
         <NavLink to='/'>
           <img src={require("../../images/logo.png")} alt='logo' width={60} />
         </NavLink>
-        <Bars onClick={openHamburguerMenu} />
+        <Burger />
         <NavMenu>
           <NavLink to='/'>Mensajes</NavLink>
           <NavLink to='/casamiento' activestyle='true'>
