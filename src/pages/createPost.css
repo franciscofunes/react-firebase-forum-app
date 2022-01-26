@@ -1,6 +1,6 @@
 .createPostPage {
   width: 100%;
-  height: calc(100vh - 175px);
+  height: calc(100vh - 100px);
   display: grid;
   place-items: center;
   @media (min-width: 900px) {
