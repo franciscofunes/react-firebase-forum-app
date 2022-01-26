@@ -1,3 +1,4 @@
+import "./createPost.css";
 import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../firebase-config";
@@ -26,22 +27,22 @@ function CreatePost({ isAuth }) {
   }, []);
 
   return (
-    <div className="createPostPage">
-      <div className="cpContainer">
-        <h1>Tu mensaje </h1>
-        <div className="inputGp">
+    <div className='createPostPage'>
+      <div className='cpContainer'>
+        <h1>Tu deseo 💘 </h1>
+        <div className='inputGp'>
           <label> Título:</label>
           <input
-            placeholder="Title..."
+            placeholder='Título'
             onChange={(event) => {
               setTitle(event.target.value);
             }}
           />
         </div>
-        <div className="inputGp">
+        <div className='inputGp'>
           <label> Mensaje:</label>
           <textarea
-            placeholder="Post..."
+            placeholder='Tu mensaje...'
             onChange={(event) => {
               setPostText(event.target.value);
             }}

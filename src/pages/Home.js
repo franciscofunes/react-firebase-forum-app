@@ -1,3 +1,4 @@
+import "./home.css";
 import React, { useEffect, useState, useCallback } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
@@ -13,24 +14,22 @@ function Home({ isAuth }) {
     };
 
     getPosts();
-  // eslint-disable-next-line no-use-before-define
   }, []);
 
-  
-  const deletePost = useCallback(async (id) => {
-    const postDoc = doc(db, "posts", id);
-    await deleteDoc(postDoc);
-  });
+  // const deletePost = useCallback(async (id) => {
+  //   const postDoc = doc(db, "posts", id);
+  //   await deleteDoc(postDoc);
+  // });
   return (
-    <div className="homePage">
+    <div className='homePage'>
       {postLists.map((post) => {
         return (
-          <div className="post" key={post.id.toString()} >
-            <div className="postHeader">
-              <div className="title" >
-                <h1 > {post.title}</h1>
+          <div className='post' key={post.id.toString()}>
+            <div className='postHeader'>
+              <div className='title'>
+                <h1> {post.title}</h1>
               </div>
-              <div className="deletePost">
+              {/* <div className='deletePost'>
                 {isAuth && post.author.id === auth.currentUser.uid && (
                   <button
                     onClick={() => {
@@ -41,9 +40,11 @@ function Home({ isAuth }) {
                     &#128465;
                   </button>
                 )}
-              </div>
+              </div> */}
             </div>
-            <div className="postTextContainer" key={post.id.toString()} > {post.postText} </div>
+            <div className='postTextContainer' key={post.id.toString()}>
+              {post.postText}
+            </div>
             <h3>@{post.author.name}</h3>
           </div>
         );
