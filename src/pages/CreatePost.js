@@ -20,6 +20,10 @@ function CreatePost({ isAuth }) {
     navigate("/");
   };
 
+  const viewMessages = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     if (!isAuth) {
       navigate("/login");
@@ -50,6 +54,10 @@ function CreatePost({ isAuth }) {
         </div>
         <button onClick={createPost}> Enviar</button>
       </div>
+      <button className='view-messages-btn' onClick={viewMessages}>
+        {" "}
+        Ver mensajes{" "}
+      </button>
     </div>
   );
 }

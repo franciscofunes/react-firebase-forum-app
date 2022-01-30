@@ -11,7 +11,7 @@
 .homePage .post {
   background-color: rgb(35, 195, 243);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin: 20px;
+  margin: 25px;
   padding: 25px;
   border-radius: 15px;
   font-size: 0.8rem;
@@ -19,18 +19,38 @@
 
 .post .postTextContainer {
   word-wrap: break-word;
+  margin-bottom: 10px;
 }
 
-/* .postHeader .deletePost {
-  flex: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-} */
+.redirect-write-msgs-btn {
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: none;
+  background-color: #dbd8d8de;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-/* .deletePost button {
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.delete-post-button {
   border: none;
   background: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
-} */
+  margin-left: 10px;
+  /* flex: 50%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-end; */
+}

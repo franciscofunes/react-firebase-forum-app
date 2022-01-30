@@ -38,14 +38,18 @@ const StyledBurger = styled.div`
 const Burger = () => {
   const [open, setOpen] = useState(false);
 
+  const closeBurger = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
-      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+      <StyledBurger open={open} onClick={closeBurger}>
         <div />
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open} />
+      <RightNav open={open} closeBurger={closeBurger} />
     </>
   );
 };

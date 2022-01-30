@@ -36,7 +36,7 @@ export const Avatarhamburger = styled.img`
   margin-left: 3px;
 `;
 
-const RightNav = ({ open }) => {
+const RightNav = ({ open, closeBurger }) => {
   const [currentUser, setCurrentUser] = useState();
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const [width, setWidth] = useState(window.innerWidth);
@@ -44,14 +44,15 @@ const RightNav = ({ open }) => {
   function handleWindowSizeChange() {
     setWidth(window.innerWidth);
   }
+
+  const isMobile = width <= 768;
+
   useEffect(() => {
     window.addEventListener("resize", handleWindowSizeChange);
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
   }, []);
-
-  const isMobile = width <= 768;
 
   const isAuthString = localStorage.getItem("isAuth");
 
@@ -77,7 +78,7 @@ const RightNav = ({ open }) => {
   return (
     <>
       {isMobile && (
-        <Ul open={open}>
+        <Ul open={open} onClick={closeBurger}>
           <li>
             {currentUser && (
               <Avatarhamburger src={currentUser.photoURL}></Avatarhamburger>

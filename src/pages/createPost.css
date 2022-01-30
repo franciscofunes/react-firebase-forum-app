@@ -1,11 +1,38 @@
 .createPostPage {
   width: 100%;
-  height: calc(100vh - 100px);
+  margin-top: 40px;
+  height: auto;
   display: grid;
   place-items: center;
   @media (min-width: 900px) {
     height: 100%;
   }
+}
+
+.view-messages-btn {
+  width: 50%;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: none;
+  background-color: #dbd8d8de;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.view-messages-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.view-messages-btn:focus {
+  outline: none;
+}
+
+.view-messages-btn:active {
+  background-color: #e5e5e5;
 }
 
 .cpContainer {

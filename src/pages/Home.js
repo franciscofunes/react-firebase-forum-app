@@ -2,10 +2,28 @@ import "./home.css";
 import React, { useEffect, useState, useCallback } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
+import { BsTrash } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
   const postsCollectionRef = collection(db, "posts");
+  const [width, setWidth] = useState(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+  const isMobile = width <= 768;
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -16,31 +34,42 @@ function Home({ isAuth }) {
     getPosts();
   }, []);
 
-  // const deletePost = useCallback(async (id) => {
-  //   const postDoc = doc(db, "posts", id);
-  //   await deleteDoc(postDoc);
-  // });
+  const deletePost = useCallback(async (id) => {
+    const postDoc = doc(db, "posts", id);
+    await deleteDoc(postDoc);
+    window.location.pathname = "/";
+  });
+
+  const goToCreatePost = () => {
+    navigate("/crear-mensaje");
+  };
   return (
     <div className='homePage'>
+      {isMobile && (
+        <button className='redirect-write-msgs-btn' onClick={goToCreatePost}>
+          {" "}
+          Dejar saludo{" "}
+        </button>
+      )}
       {postLists.map((post) => {
         return (
           <div className='post' key={post.id.toString()}>
             <div className='postHeader'>
+              {/* <div className='deletePost'> */}
+              {/* </div> */}
               <div className='title'>
                 <h1> {post.title}</h1>
-              </div>
-              {/* <div className='deletePost'>
                 {isAuth && post.author.id === auth.currentUser.uid && (
                   <button
+                    className='delete-post-button'
                     onClick={() => {
                       deletePost(post.id);
                     }}
                   >
-                    {" "}
-                    &#128465;
+                    <BsTrash />
                   </button>
                 )}
-              </div> */}
+              </div>
             </div>
             <div className='postTextContainer' key={post.id.toString()}>
               {post.postText}
