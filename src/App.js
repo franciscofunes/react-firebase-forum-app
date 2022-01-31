@@ -9,7 +9,7 @@ import Casamiento from "./pages/Casamiento";
 import { useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
-import { Nav } from "./components/Navbar/NavbarElements";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -38,6 +38,7 @@ function App() {
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
         <Route path='/casamiento' element={<Casamiento />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

@@ -1,0 +1,48 @@
+.casamiento {
+  padding: 15px;
+  margin: 15px;
+  border-radius: 4px;
+  height: 70vh;
+}
+
+.casamiento-container-text {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 5px;
+}
+
+.casamiento-container-text-content {
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
+
+.casamiento-container-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #dbd8d8de;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.2s;
+  text-align: center;
+  padding: 10px;
+}
+
+.casamiento-container-copyToCLipboard {
+  font-size: 1rem;
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 10px 10px 10px 34px;
+  border: 1px #cccccc solid;
+}

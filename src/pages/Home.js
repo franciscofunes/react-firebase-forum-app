@@ -45,39 +45,41 @@ function Home({ isAuth }) {
   };
   return (
     <div className='homePage'>
-      {isMobile && (
-        <button className='redirect-write-msgs-btn' onClick={goToCreatePost}>
-          {" "}
-          Dejar saludo{" "}
-        </button>
-      )}
-      {postLists.map((post) => {
-        return (
-          <div className='post' key={post.id.toString()}>
-            <div className='postHeader'>
-              {/* <div className='deletePost'> */}
-              {/* </div> */}
-              <div className='title'>
-                <h1> {post.title}</h1>
-                {isAuth && post.author.id === auth.currentUser.uid && (
-                  <button
-                    className='delete-post-button'
-                    onClick={() => {
-                      deletePost(post.id);
-                    }}
-                  >
-                    <BsTrash />
-                  </button>
-                )}
+      <>
+        {isMobile && (
+          <button className='redirect-write-msgs-btn' onClick={goToCreatePost}>
+            {" "}
+            Dejar saludo{" "}
+          </button>
+        )}
+        {postLists.map((post) => {
+          return (
+            <div className='post' key={post.id.toString()}>
+              <div className='postHeader'>
+                {/* <div className='deletePost'> */}
+                {/* </div> */}
+                <div className='title'>
+                  <h1> {post.title}</h1>
+                  {isAuth && post.author.id === auth.currentUser.uid && (
+                    <button
+                      className='delete-post-button'
+                      onClick={() => {
+                        deletePost(post.id);
+                      }}
+                    >
+                      <BsTrash />
+                    </button>
+                  )}
+                </div>
               </div>
+              <div className='postTextContainer' key={post.id.toString()}>
+                {post.postText}
+              </div>
+              <h3>@{post.author.name}</h3>
             </div>
-            <div className='postTextContainer' key={post.id.toString()}>
-              {post.postText}
-            </div>
-            <h3>@{post.author.name}</h3>
-          </div>
-        );
-      })}
+          );
+        })}
+      </>
     </div>
   );
 }

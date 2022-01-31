@@ -1,6 +1,7 @@
 .loginPage {
   width: 100vw;
-  height: calc(100vh - 500px);
+  /* height: calc(100vh - 500px); */
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +16,7 @@
 
 .loginPage h4 {
   font-size: 1.5rem;
-  margin-top: 10rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
