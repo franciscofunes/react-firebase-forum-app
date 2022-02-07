@@ -49,8 +49,11 @@
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 10px;
-  /* flex: 50%; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: flex-end; */
+}
+
+.postTextIcon {
+  font-size: 1.4rem;
+  color: rgb(221, 74, 57);
+  margin-left: 5px;
+  font-weight: bold;
 }

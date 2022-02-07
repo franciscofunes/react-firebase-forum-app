@@ -1,9 +1,21 @@
-.casamiento {
+/* .casamiento {
   padding: 15px;
   margin: 15px;
   border-radius: 4px;
-  height: 70vh;
-}
+  min-height: calc(100vh - 0px);
+  height: auto;
+} */
+
+.casamiento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 55px;
+    padding-top: 55px;
+    width: 100%;
+    min-height: calc(80vh - 0px);
+    height: auto;
+  }
 
 .casamiento-container-text {
   font-size: 1rem;

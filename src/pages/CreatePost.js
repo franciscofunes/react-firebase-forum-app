@@ -8,6 +8,7 @@ function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
 
+
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
@@ -37,15 +38,20 @@ function CreatePost({ isAuth }) {
         <div className='inputGp'>
           <label> Título:</label>
           <input
+            required
             placeholder='Título'
             onChange={(event) => {
-              setTitle(event.target.value);
+              if (event.target.value.length > 0) {
+                setTitle(event.target.value);
+              }
+              alert("El título no puede estar vacío");
             }}
           />
         </div>
         <div className='inputGp'>
           <label> Mensaje:</label>
           <textarea
+            required
             placeholder='Tu mensaje...'
             onChange={(event) => {
               setPostText(event.target.value);
@@ -54,7 +60,9 @@ function CreatePost({ isAuth }) {
         </div>
         <button onClick={createPost}> Enviar</button>
       </div>
-      <button className='view-messages-btn' onClick={viewMessages}>
+      <button 
+        className='view-messages-btn' 
+        onClick={viewMessages}>
         {" "}
         Ver mensajes{" "}
       </button>

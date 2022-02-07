@@ -4,6 +4,8 @@ import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
 import { BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import {BiDonateHeart} from "react-icons/bi";
+import {GiGlassHeart} from "react-icons/gi";
 
 function Home({ isAuth }) {
   const [postLists, setPostList] = useState([]);
@@ -52,6 +54,23 @@ function Home({ isAuth }) {
             Dejar saludo{" "}
           </button>
         )}
+        {/* harcoded */}
+            <div className='post' >
+              <div className='postHeader'>
+                {/* <div className='deletePost'> */}
+                {/* </div> */}
+                <div className='title'>
+                  <h1> ¡Bienvenidos! 👋</h1>
+                </div>
+              </div>
+              <div className='postTextContainer' >
+              Nos casamos y armamos está app para que nos dejes tus mensajes y deseos en esta nueva etapa! Los queremos  
+              <span className='postTextIcon'>
+                <GiGlassHeart/> 
+              </span>
+              </div>
+              <h3>@Fran y @Flavia</h3>
+            </div>        
         {postLists.map((post) => {
           return (
             <div className='post' key={post.id.toString()}>
