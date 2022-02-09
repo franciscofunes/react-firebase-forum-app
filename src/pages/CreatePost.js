@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
+  const [disable, setDisable] = React.useState(false);
 
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
@@ -53,11 +54,20 @@ function CreatePost({ isAuth }) {
             required
             placeholder='Tu mensaje...'
             onChange={(event) => {
+              if (event.target.value.length <= 0) {
+                alert("El mesasaje no puede estar vacío");
+              }
               setPostText(event.target.value);
             }}
           />
         </div>
-        <button onClick={createPost}> Enviar</button>
+        <button
+          disabled={title.length <= 0 || postText <= 0}
+          onClick={createPost}
+        >
+          {" "}
+          Enviar
+        </button>
       </div>
       <button className='view-messages-btn' onClick={viewMessages}>
         {" "}
