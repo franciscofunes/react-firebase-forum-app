@@ -8,7 +8,6 @@ function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [postText, setPostText] = useState("");
 
-
   const postsCollectionRef = collection(db, "posts");
   let navigate = useNavigate();
 
@@ -41,10 +40,10 @@ function CreatePost({ isAuth }) {
             required
             placeholder='Título'
             onChange={(event) => {
-              if (event.target.value.length > 0) {
-                setTitle(event.target.value);
+              if (event.target.value.length <= 0) {
+                alert("El título no puede estar vacío");
               }
-              alert("El título no puede estar vacío");
+              setTitle(event.target.value);
             }}
           />
         </div>
@@ -60,9 +59,7 @@ function CreatePost({ isAuth }) {
         </div>
         <button onClick={createPost}> Enviar</button>
       </div>
-      <button 
-        className='view-messages-btn' 
-        onClick={viewMessages}>
+      <button className='view-messages-btn' onClick={viewMessages}>
         {" "}
         Ver mensajes{" "}
       </button>
