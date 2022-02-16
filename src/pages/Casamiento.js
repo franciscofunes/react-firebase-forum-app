@@ -3,6 +3,7 @@ import { GiPartyFlags } from "react-icons/gi";
 import { BsClipboardCheck, BsBank } from "react-icons/bs";
 import { MdOpenInNew } from "react-icons/md";
 import { MdOutlinePayments } from "react-icons/md";
+
 import "./casamiento.css";
 
 function Casamiento({ isAuth }) {
@@ -70,9 +71,11 @@ function Casamiento({ isAuth }) {
                   </strong>
                 </label>
                 <input
+                  style={{ width: "306px" }}
                   type='text'
                   defaultValue='0290038410000030306593'
                   id='myInput'
+                  size='20'
                   className='casamiento-container-copyToCLipboard'
                   disabled
                 />{" "}
@@ -108,9 +111,45 @@ function Casamiento({ isAuth }) {
               </div>
             </p>
             <div class='container-mp-buttons'>
-              <button className='casamiento-mp-btn'>$3000</button>
-              <button className='casamiento-mp-btn'>$5000</button>
-              <button className='casamiento-mp-btn'>$10000</button>
+              <button
+                onClick={() =>
+                  window.open(
+                    `
+                https://mpago.la/123J8xT
+                `,
+                    "_blank"
+                  )
+                }
+                className='casamiento-mp-btn'
+              >
+                <small>$</small> 3.000
+              </button>
+              <button
+                onClick={() =>
+                  window.open(
+                    `
+                https://mpago.la/1EvVPbb
+                `,
+                    "_blank"
+                  )
+                }
+                className='casamiento-mp-btn'
+              >
+                <small>$</small> 5.000
+              </button>
+              <button
+                onClick={() =>
+                  window.open(
+                    `                
+                https://mpago.la/2PxMjxw
+                `,
+                    "_blank"
+                  )
+                }
+                className='casamiento-mp-btn'
+              >
+                <small>$</small> 10.000
+              </button>
             </div>
           </div>
         </div>

@@ -4,7 +4,6 @@ import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../firebase-config";
 import { BsTrash } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { BiDonateHeart } from "react-icons/bi";
 import { GiGlassHeart } from "react-icons/gi";
 
 function Home({ isAuth }) {
