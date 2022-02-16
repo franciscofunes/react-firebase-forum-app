@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CreatePost from "./pages/CreatePost";
 import Login from "./pages/Login";
 import Casamiento from "./pages/Casamiento";
+import PagoExitoso from "./pages/PagoExitoso";
 
 import { useState, useEffect } from "react";
 import { signOut } from "firebase/auth";
@@ -37,6 +38,7 @@ function App() {
         <Route path='/crear-mensaje' element={<CreatePost isAuth={isAuth} />} />
         <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
         <Route path='/casamiento' element={<Casamiento />} />
+        <Route path='/pago-exitoso' element={<PagoExitoso />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { GiPartyFlags } from "react-icons/gi";
-import { BsClipboardCheck } from "react-icons/bs";
+import { BsClipboardCheck, BsBank } from "react-icons/bs";
 import { MdOpenInNew } from "react-icons/md";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import { MdOutlinePayments } from "react-icons/md";
 import "./casamiento.css";
 
 function Casamiento({ isAuth }) {
@@ -23,7 +23,10 @@ function Casamiento({ isAuth }) {
     navigator.clipboard.writeText(copyText.value);
 
     /* Alert the copied text */
-    alert("Ya tenes nuestro CBU esperamos tu regalo! 💰 " + copyText.value);
+    alert(
+      "Ya tenes nuestro CBU en tu portapapeles esperamos tu regalo! 💰 " +
+        `${copyText.value}`
+    );
   };
 
   return (
@@ -40,10 +43,32 @@ function Casamiento({ isAuth }) {
               Sin ti esto no sería igual Gracias por acompañarnos en esta nueva
               etapa de nuestra vida.
               <br />
-              Si queres un detalle con nosotros Suma amor a nuestra aventura!
+              <button
+                onClick={downloadFile}
+                className='casamiento-container-btn'
+              >
+                Invitación{" "}
+                <MdOpenInNew
+                  style={{
+                    color: "purple",
+                    fontSize: "1.5rem",
+                    marginLeft: "10px",
+                    cursor: "pointer",
+                  }}
+                />
+              </button>
+              <br />
+              Si queres un detalle con nosotros, suma amor a nuestra aventura
+              con tu regalo:
               <br />
               <div className='container-cbu'>
-                <label>CBU:</label>
+                <br />
+                <label>
+                  <strong>
+                    CBU:
+                    <BsBank style={{ marginLeft: "10px", color: "brown" }} />
+                  </strong>
+                </label>
                 <input
                   type='text'
                   defaultValue='0290038410000030306593'
@@ -51,35 +76,43 @@ function Casamiento({ isAuth }) {
                   className='casamiento-container-copyToCLipboard'
                   disabled
                 />{" "}
+                <button
+                  onClick={copyToCLipboard}
+                  className='casamiento-container-btn'
+                >
+                  CBU{" "}
+                  <BsClipboardCheck
+                    style={{
+                      color: "green",
+                      fontSize: "1.5rem",
+                      marginLeft: "10px",
+                      cursor: "pointer",
+                    }}
+                  />
+                </button>
+              </div>
+              <div className='container-cbu'>
+                <br />
+                <label>
+                  <strong>
+                    MERCADO PAGO:
+                    <MdOutlinePayments
+                      style={{
+                        marginLeft: "10px",
+                        color: "lightblue",
+                        fontSize: "1.5rem",
+                      }}
+                    />
+                  </strong>
+                </label>
               </div>
             </p>
+            <div class='container-mp-buttons'>
+              <button className='casamiento-mp-btn'>$3000</button>
+              <button className='casamiento-mp-btn'>$5000</button>
+              <button className='casamiento-mp-btn'>$10000</button>
+            </div>
           </div>
-
-          <button
-            onClick={copyToCLipboard}
-            className='casamiento-container-btn'
-          >
-            CBU{" "}
-            <BsClipboardCheck
-              style={{
-                color: "green",
-                fontSize: "1.5rem",
-                marginLeft: "10px",
-                cursor: "pointer",
-              }}
-            />
-          </button>
-          <button onClick={downloadFile} className='casamiento-container-btn'>
-            Invitación{" "}
-            <MdOpenInNew
-              style={{
-                color: "purple",
-                fontSize: "1.5rem",
-                marginLeft: "10px",
-                cursor: "pointer",
-              }}
-            />
-          </button>
         </div>
       </div>
     </div>
